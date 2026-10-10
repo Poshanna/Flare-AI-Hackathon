@@ -1,129 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
-  <title id="title">ClaimPilot AI architecture</title>
-  <desc id="desc">A human-in-the-loop insurance claims triage flow from document intake to Gemini extraction, local rule validation, semantic policy retrieval, evidence-backed findings, and a review JSON report.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#121d31"/></linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#42d6c4"/><stop offset="1" stop-color="#66a6ff"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#020617" flood-opacity="0.35"/></filter>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M1,1 L10,6 L1,11 Z" fill="#7da5c8"/></marker>
-    <style>
-      .title{font:700 38px 'Segoe UI',Arial,sans-serif;fill:#f4f8ff}
-      .subtitle{font:400 17px 'Segoe UI',Arial,sans-serif;fill:#a6b8ce}
-      .section{font:700 14px 'Segoe UI',Arial,sans-serif;letter-spacing:2px;fill:#76ddd0}
-      .cardTitle{font:700 20px 'Segoe UI',Arial,sans-serif;fill:#f4f8ff}
-      .body{font:400 15px 'Segoe UI',Arial,sans-serif;fill:#c6d4e5}
-      .small{font:400 13px 'Segoe UI',Arial,sans-serif;fill:#9fb1c7}
-      .pill{font:600 12px 'Segoe UI',Arial,sans-serif;fill:#0b1220}
-      .box{fill:#17263b;stroke:#31455f;stroke-width:1.5}
-      .ai{fill:#172c3e;stroke:#2b9d9a;stroke-width:1.8}
-      .rule{fill:#222b40;stroke:#6f8cbd;stroke-width:1.5}
-      .out{fill:#1b3042;stroke:#4baea7;stroke-width:1.8}
-      .line{fill:none;stroke:#7da5c8;stroke-width:2.5;marker-end:url(#arrow)}
-      .dash{fill:none;stroke:#70869e;stroke-width:2;stroke-dasharray:7 7;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1440" height="900" rx="28" fill="url(#bg)"/>
-  <path d="M0 120 H1440" stroke="#25374d" stroke-width="1"/>
-  <rect x="64" y="48" width="54" height="54" rx="16" fill="url(#accent)"/>
-  <path d="M91 58 L104 65 V83 Q104 92 91 98 Q78 92 78 83 V65 Z" fill="#102036" stroke="#e8ffff" stroke-width="1.7"/>
-  <path d="M85 78 L90 83 L98 72" fill="none" stroke="#65e3cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="136" y="77" class="title">ClaimPilot AI</text>
-  <text x="136" y="103" class="subtitle">Evidence-driven motor claims triage · Human-in-the-loop decision support</text>
-  <rect x="1080" y="62" width="292" height="32" rx="16" fill="#183b43" stroke="#2d8884"/>
-  <text x="1226" y="83" text-anchor="middle" class="pill" fill="#88f0df">HACKATHON MVP · SYNTHETIC DATA</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081323"/><stop offset="1" stop-color="#101e34"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#172941"/><stop offset="1" stop-color="#132238"/></linearGradient>
+  <linearGradient id="tealcard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123341"/><stop offset="1" stop-color="#152b3d"/></linearGradient>
+  <linearGradient id="bluecard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#202e49"/><stop offset="1" stop-color="#1b2940"/></linearGradient>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M1,1 L10,6 L1,11 Z" fill="#8bb8e2"/></marker>
+  <style>
+    .heading{font:700 38px Arial,Helvetica,sans-serif;fill:#f1f6ff}.subtitle{font:19px Arial,Helvetica,sans-serif;fill:#a8bbd2}
+    .step{font:700 15px Arial,Helvetica,sans-serif;letter-spacing:2.4px;fill:#63e2d1}
+    .cardTitle{font:700 22px Arial,Helvetica,sans-serif;fill:#f3f7ff}.body{font:17px Arial,Helvetica,sans-serif;fill:#c5d3e3}.small{font:14px Arial,Helvetica,sans-serif;fill:#9fb1c7}.pill{font:700 13px Arial,Helvetica,sans-serif;fill:#092033}
+    .footHead{font:700 15px Arial,Helvetica,sans-serif;letter-spacing:2px;fill:#63e2d1}.footBody{font:16px Arial,Helvetica,sans-serif;fill:#c5d3e3}
+  </style>
+</defs>
+<rect width="1600" height="1080" rx="24" fill="url(#bg)"/>
+<rect x="0" y="126" width="1600" height="2" fill="#253951"/>
+<!-- header emblem -->
+<rect x="60" y="42" width="58" height="58" rx="16" fill="#37cfc7"/>
+<path d="M89 52 L104 60 V75 Q101 88 89 93 Q77 88 74 75 V60 Z" fill="#102438" stroke="#e1fffb" stroke-width="2.5"/>
+<path d="M82 73 L87 78 L97 66" fill="none" stroke="#67f0dc" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="138" y="70" class="heading">ClaimPilot AI</text>
+<text x="140" y="101" class="subtitle">Evidence-driven motor claims triage · Human-in-the-loop decision support</text>
+<rect x="1176" y="52" width="358" height="42" rx="21" fill="#143642" stroke="#258e91" stroke-width="1.5"/>
+<text x="1355" y="78" text-anchor="middle" class="pill" fill="#85f0e1">HACKATHON MVP · SYNTHETIC DATA</text>
 
-  <text x="64" y="165" class="section">01 / INTAKE</text>
-  <text x="380" y="165" class="section">02 / UNDERSTAND</text>
-  <text x="708" y="165" class="section">03 / VALIDATE + GROUND</text>
-  <text x="1080" y="165" class="section">04 / REVIEW</text>
+<!-- Main workflow labels -->
+<text x="60" y="164" class="step">01 / INTAKE</text><text x="420" y="164" class="step">02 / UNDERSTAND</text><text x="780" y="164" class="step">03 / VALIDATE + GROUND</text><text x="1140" y="164" class="step">04 / REVIEW</text>
+<!-- main cards -->
+<rect x="60" y="185" width="330" height="250" rx="22" fill="url(#card)" stroke="#344c69" stroke-width="1.8"/>
+<rect x="83" y="207" width="52" height="52" rx="14" fill="#204d71"/>
+<path d="M97 217 H116 L124 225 V248 H97 Z M116 217 V226 H124 M102 233 H118 M102 240 H118" stroke="#a8dbff" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+<text x="84" y="286" class="cardTitle">Claim documents</text>
+<text x="84" y="319" class="body">• Claim form</text><text x="84" y="347" class="body">• Repair estimate</text><text x="84" y="375" class="body">• Incident report + notes</text>
+<rect x="83" y="393" width="143" height="25" rx="12" fill="#34506e"/><text x="154" y="410" text-anchor="middle" class="pill">TXT · PDF · DOCX</text>
 
-  <!-- Intake -->
-  <g filter="url(#shadow)">
-    <rect x="64" y="194" width="250" height="214" rx="18" class="box"/>
-    <rect x="86" y="216" width="42" height="42" rx="12" fill="#23425a"/>
-    <path d="M98 225 h14 l7 7 v16 h-21 z M112 225 v8 h7 M102 239 h12 M102 245 h12" stroke="#9fd4ff" stroke-width="2" fill="none" stroke-linejoin="round"/>
-    <text x="86" y="287" class="cardTitle">Claim documents</text>
-    <text x="86" y="316" class="body">• Claim form</text>
-    <text x="86" y="341" class="body">• Repair estimate</text>
-    <text x="86" y="366" class="body">• Incident report + notes</text>
-    <rect x="86" y="379" width="126" height="18" rx="9" fill="#31465e"/>
-    <text x="149" y="392" class="pill" text-anchor="middle">TXT · PDF · DOCX</text>
-  </g>
-  <path d="M314 300 H354" class="line"/>
+<rect x="420" y="185" width="330" height="250" rx="22" fill="url(#tealcard)" stroke="#12b5ad" stroke-width="2"/>
+<rect x="443" y="207" width="52" height="52" rx="14" fill="#1d6669"/>
+<circle cx="469" cy="225" r="8" stroke="#99f4e6" stroke-width="2.3" fill="none"/><path d="M455 244 Q469 229 483 244" stroke="#99f4e6" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<text x="444" y="286" class="cardTitle">Structured extraction</text>
+<text x="444" y="316" class="body">• Gemini model: gemini-3.8-flash</text><text x="444" y="344" class="body">• Fixed-field JSON output</text><text x="444" y="372" class="body">• Local pattern fallback</text>
+<rect x="443" y="393" width="210" height="25" rx="12" fill="#71ead6"/><text x="548" y="410" text-anchor="middle" class="pill">VALUES ARE SUGGESTIONS</text>
 
-  <!-- Extraction -->
-  <g filter="url(#shadow)">
-    <rect x="358" y="194" width="278" height="214" rx="18" class="ai"/>
-    <rect x="380" y="216" width="42" height="42" rx="12" fill="#1f5c62"/>
-    <path d="M390 231 q11 -12 22 0 q-11 12 -22 0 M390 243 q11 -12 22 0" fill="none" stroke="#a0fff0" stroke-width="2"/>
-    <text x="380" y="287" class="cardTitle">Structured extraction</text>
-    <text x="380" y="316" class="body">Gemini Flash</text>
-    <text x="380" y="341" class="body">Fixed-field JSON output</text>
-    <text x="380" y="366" class="body">Local pattern fallback</text>
-    <rect x="380" y="379" width="164" height="18" rx="9" fill="#79e0d0"/>
-    <text x="462" y="392" class="pill" text-anchor="middle">VALUES ARE SUGGESTIONS</text>
-  </g>
-  <path d="M636 300 H678" class="line"/>
+<rect x="780" y="185" width="330" height="250" rx="22" fill="url(#bluecard)" stroke="#6b8fc6" stroke-width="1.8"/>
+<rect x="803" y="207" width="52" height="52" rx="14" fill="#394e75"/>
+<path d="M814 222 l4 4 7-8 M830 221 H844 M814 237 l4 4 7-8 M830 236 H844 M814 251 l4 4 7-8 M830 250 H844" stroke="#d2e5ff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="804" y="286" class="cardTitle">Deterministic checks</text>
+<text x="804" y="319" class="body">• Compare values across documents</text><text x="804" y="347" class="body">• Flag registration conflicts</text><text x="804" y="375" class="body">• Flag incident-date conflicts</text>
+<rect x="803" y="393" width="208" height="25" rx="12" fill="#b8ceff"/><text x="907" y="410" text-anchor="middle" class="pill">SOURCE-LINKED EVIDENCE</text>
 
-  <!-- Validation -->
-  <g filter="url(#shadow)">
-    <rect x="682" y="194" width="278" height="214" rx="18" class="rule"/>
-    <rect x="704" y="216" width="42" height="42" rx="12" fill="#38486b"/>
-    <path d="M715 227 h20 M715 235 h14 M715 243 h17 M711 227 l2 2 4 -5 M711 235 l2 2 4 -5 M711 243 l2 2 4 -5" fill="none" stroke="#d4e2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="704" y="287" class="cardTitle">Deterministic checks</text>
-    <text x="704" y="316" class="body">Compare fields across sources</text>
-    <text x="704" y="341" class="body">Flag registration conflicts</text>
-    <text x="704" y="366" class="body">Flag incident date conflicts</text>
-    <rect x="704" y="379" width="172" height="18" rx="9" fill="#b5c8ff"/>
-    <text x="790" y="392" class="pill" text-anchor="middle">SOURCE-LINKED EVIDENCE</text>
-  </g>
-  <path d="M960 300 H1000" class="line"/>
+<rect x="1140" y="185" width="330" height="250" rx="22" fill="url(#tealcard)" stroke="#36c3b7" stroke-width="2"/>
+<rect x="1163" y="207" width="52" height="52" rx="14" fill="#1e6665"/>
+<rect x="1175" y="217" width="28" height="30" rx="2" stroke="#a8fff0" stroke-width="2.2" fill="none"/><path d="M1181 225 H1198 M1181 232 H1198 M1181 239 H1194" stroke="#a8fff0" stroke-width="2"/>
+<text x="1164" y="286" class="cardTitle">Review report</text>
+<text x="1164" y="319" class="body">• Findings + source values</text><text x="1164" y="347" class="body">• Severity + recommended next step</text><text x="1164" y="375" class="body">• Downloadable JSON audit snapshot</text>
+<rect x="1163" y="393" width="257" height="25" rx="12" fill="#83ead8"/><text x="1291" y="410" text-anchor="middle" class="pill">HUMAN ADJUSTER REVIEW</text>
 
-  <!-- Review -->
-  <g filter="url(#shadow)">
-    <rect x="1004" y="194" width="372" height="214" rx="18" class="out"/>
-    <rect x="1026" y="216" width="42" height="42" rx="12" fill="#23615f"/>
-    <path d="M1037 226 h20 v20 h-20 z M1041 232 h12 M1041 237 h12 M1041 242 h8" fill="none" stroke="#a5fff1" stroke-width="2" stroke-linejoin="round"/>
-    <text x="1026" y="287" class="cardTitle">Review report</text>
-    <text x="1026" y="316" class="body">Findings + source values</text>
-    <text x="1026" y="341" class="body">Severity + recommended next step</text>
-    <text x="1026" y="366" class="body">Downloadable JSON audit snapshot</text>
-    <rect x="1026" y="379" width="212" height="18" rx="9" fill="#92ebd9"/>
-    <text x="1132" y="392" class="pill" text-anchor="middle">HUMAN ADJUSTER REVIEW</text>
-  </g>
+<!-- only actual main flow arrows -->
+<path d="M394 310 H414" stroke="#8bb8e2" stroke-width="4" fill="none" marker-end="url(#arrow)"/><path d="M754 310 H774" stroke="#8bb8e2" stroke-width="4" fill="none" marker-end="url(#arrow)"/><path d="M1114 310 H1134" stroke="#8bb8e2" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
 
-  <!-- Policy RAG lane -->
-  <path d="M497 408 V466 H665" class="dash"/>
-  <text x="64" y="470" class="section">POLICY-GROUNDED RETRIEVAL LANE</text>
-  <g filter="url(#shadow)">
-    <rect x="64" y="496" width="320" height="142" rx="18" class="box"/>
-    <text x="88" y="530" class="cardTitle">Sample policy text</text>
-    <text x="88" y="558" class="body">Split into policy sections</text>
-    <text x="88" y="583" class="body">User query: coverage, deductible, exclusions</text>
-    <text x="88" y="612" class="small">Illustrative text only; not a real contract</text>
-    <rect x="420" y="496" width="320" height="142" rx="18" class="ai"/>
-    <text x="444" y="530" class="cardTitle">Gemini embeddings</text>
-    <text x="444" y="558" class="body">Embed query + policy sections</text>
-    <text x="444" y="583" class="body">Cosine similarity ranking</text>
-    <text x="444" y="612" class="small">Keyword fallback when unavailable</text>
-    <rect x="776" y="496" width="280" height="142" rx="18" class="box"/>
-    <text x="800" y="530" class="cardTitle">Top relevant clauses</text>
-    <text x="800" y="558" class="body">Section citation + text</text>
-    <text x="800" y="583" class="body">Similarity = ranking signal</text>
-    <text x="800" y="612" class="small">Not a confidence score</text>
-  </g>
-  <path d="M384 566 H414" class="line"/>
-  <path d="M740 566 H770" class="line"/>
-  <path d="M916 496 V445 H1160 V408" class="dash"/>
+<!-- independent retrieval lane, no cross-lane arrow -->
+<text x="60" y="493" class="step">INDEPENDENT POLICY EVIDENCE SEARCH · SEPARATE UI PANEL</text>
+<rect x="60" y="515" width="450" height="228" rx="22" fill="url(#card)" stroke="#344c69" stroke-width="1.8"/>
+<rect x="83" y="538" width="52" height="52" rx="14" fill="#204d71"/>
+<path d="M92 546 Q100 540 108 546 V579 Q100 573 92 579 Z M108 546 Q116 540 124 546 V579 Q116 573 108 579 Z M108 546 V579" stroke="#b6defe" stroke-width="2" fill="none"/>
+<text x="148" y="558" class="cardTitle">Policy text + search query</text>
+<text x="148" y="586" class="small">Illustrative policy document only</text>
+<text x="84" y="625" class="body">• Split policy into paragraph sections</text><text x="84" y="653" class="body">• Search prompt entered separately by user</text><text x="84" y="681" class="body">• Example: coverage, deductible, exclusions</text>
 
-  <!-- Safety and configuration footer -->
-  <rect x="64" y="690" width="1312" height="142" rx="20" fill="#131f32" stroke="#31455f" stroke-width="1.5"/>
-  <text x="92" y="728" class="section">SAFETY BOUNDARIES</text>
-  <g>
-    <circle cx="103" cy="760" r="7" fill="#5bd7c2"/><text x="122" y="765" class="body">Synthetic demo data only</text>
-    <circle cx="403" cy="760" r="7" fill="#5bd7c2"/><text x="422" y="765" class="body">Verify every value against source documents</text>
-    <circle cx="854" cy="760" r="7" fill="#5bd7c2"/><text x="873" y="765" class="body">No automatic approval, denial, pricing, settlement, or fraud decision</text>
-  </g>
-  <path d="M92 790 H1348" stroke="#2a3d54"/>
-  <text x="92" y="815" class="small">Configuration: GEMINI_API_KEY stays in local .env (never commit it). Gemini API failures fall back to transparent local methods.</text>
+<rect x="575" y="515" width="450" height="228" rx="22" fill="url(#tealcard)" stroke="#12b5ad" stroke-width="2"/>
+<rect x="598" y="538" width="52" height="52" rx="14" fill="#1d6669"/>
+<ellipse cx="624" cy="548" rx="13" ry="5" fill="none" stroke="#9af5e7" stroke-width="2.2"/><path d="M611 548 V578 C611 584 637 584 637 578 V548 M611 558 C611 565 637 565 637 558 M611 568 C611 575 637 575 637 568" stroke="#9af5e7" stroke-width="2.2" fill="none"/>
+<text x="663" y="558" class="cardTitle">Gemini embeddings</text>
+<text x="663" y="586" class="small">Model: gemini-embedding-001</text>
+<text x="599" y="625" class="body">• Embed the query and policy sections</text><text x="599" y="653" class="body">• Rank by cosine similarity</text><text x="599" y="681" class="body">• Keyword retrieval fallback if needed</text>
+
+<rect x="1090" y="515" width="450" height="228" rx="22" fill="url(#bluecard)" stroke="#6b8fc6" stroke-width="1.8"/>
+<rect x="1113" y="538" width="52" height="52" rx="14" fill="#394e75"/>
+<circle cx="1135" cy="559" r="12" stroke="#d2e5ff" stroke-width="3" fill="none"/><path d="M1144 568 L1153 577" stroke="#d2e5ff" stroke-width="3" stroke-linecap="round"/>
+<text x="1178" y="558" class="cardTitle">Top relevant clauses</text>
+<text x="1178" y="586" class="small">Displayed in policy evidence panel</text>
+<text x="1114" y="625" class="body">• Section citation + source text</text><text x="1114" y="653" class="body">• Similarity score is a ranking signal</text><text x="1114" y="681" class="body">• Separate from final review JSON today</text>
+<rect x="1113" y="700" width="221" height="25" rx="12" fill="#b8ceff"/><text x="1223" y="717" text-anchor="middle" class="pill">POLICY EVIDENCE UI</text>
+<!-- lane arrows only -->
+<path d="M514 628 H568" stroke="#8bb8e2" stroke-width="4" fill="none" marker-end="url(#arrow)"/><path d="M1029 628 H1083" stroke="#8bb8e2" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+<!-- explicit architecture note -->
+<rect x="60" y="765" width="1480" height="58" rx="14" fill="#182b42" stroke="#526987" stroke-width="1.2"/>
+<circle cx="87" cy="794" r="7" fill="#63e2d1"/>
+<text x="108" y="789" class="cardTitle" style="font-size:17px">Implementation note</text>
+<text x="108" y="810" class="small">Policy clauses are retrieved and displayed separately; the current JSON review report’s policy_evidence field still uses keyword retrieval from the review engine.</text>
+
+<!-- safety -->
+<rect x="60" y="847" width="1480" height="174" rx="22" fill="#132238" stroke="#334b68" stroke-width="1.8"/>
+<text x="88" y="881" class="footHead">SAFETY BOUNDARIES</text>
+<circle cx="94" cy="913" r="8" fill="#4dd3bd"/><text x="115" y="919" class="footBody">Synthetic demo data only</text>
+<circle cx="548" cy="913" r="8" fill="#4dd3bd"/><text x="569" y="919" class="footBody">Verify every value against source documents</text>
+<circle cx="1040" cy="913" r="8" fill="#4dd3bd"/><text x="1061" y="914" class="footBody" style="font-size:15px">No automated approval, denial, pricing,</text><text x="1061" y="935" class="footBody" style="font-size:15px">settlement, or fraud decision</text>
+<path d="M88 946 H1512" stroke="#2d435e" stroke-width="1.5"/>
+<text x="88" y="978" class="small">Configuration: GEMINI_API_KEY stays in local .env (never commit it). Gemini API failures fall back to transparent local methods.</text>
+<text x="88" y="1006" class="small">AI outputs are review suggestions; a human adjuster verifies evidence and makes all claim decisions.</text>
 </svg>
