@@ -22,5 +22,5 @@ def test_gemini_config_has_safe_defaults(monkeypatch):
     monkeypatch.setenv("LLM_PROVIDER", "gemini")
     config = gemini_config()
     assert config["api_key"] == ""
-    assert config["model"] == "gemini-2.5-flash"
+    assert config["model"] == "gemini-3.8-flash"
     assert config["embedding_model"] == "gemini-embedding-001"

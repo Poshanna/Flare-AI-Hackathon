@@ -1,19 +1,47 @@
-# ClaimPilot AI — Hackathon MVP
+# ClaimPilot AI — Evidence-Driven Insurance Claims Triage
 
-An evidence-driven motor insurance claims triage demo for the Flarre AI Inc Hackathon 2026. Sample data is fictional.
+**Flarre AI Hackathon 2026 · Working Streamlit prototype · Synthetic data only**
 
-## Current features
-- Streamlit dashboard for sample claims or TXT/PDF/DOCX uploads
-- Local pattern-based extraction and deterministic rule checks
-- Cross-document discrepancy detection for policy number, registration and incident date
-- Optional Gemini structured extraction into a fixed set of fields
-- Optional semantic policy retrieval using Gemini embeddings, with policy section citations
-- Keyword and local extraction fallbacks if Gemini is not configured or an API request fails
-- JSON review/audit snapshot download
-- Human-review boundary: never approves, denies, prices, settles, or labels a claim fraudulent
+ClaimPilot AI helps a human motor-claims adjuster review a claim packet faster by extracting key fields, comparing values across documents, retrieving potentially relevant policy wording, and presenting findings with source evidence. It is a decision-support prototype, not an automated claims decision system.
 
-## Setup on Windows Command Prompt
-Run these commands from the folder containing `requirements.txt`:
+## Architecture
+
+![ClaimPilot AI system architecture](docs/architecture.svg)
+
+### Workflow
+
+1. **Intake** — use the built-in synthetic scenario or upload `.txt`, `.pdf`, or `.docx` claim documents, plus optional incident notes.
+2. **Structured extraction** — use Gemini Flash to suggest a fixed set of claim fields. Local pattern-based extraction is available as a fallback.
+3. **Cross-document validation** — deterministic checks compare document values and flag disagreements (including vehicle registration and incident date) with the source file names and values.
+4. **Policy retrieval** — Gemini embeddings rank relevant policy sections for a natural-language query. Keyword retrieval is the fallback. Similarity scores are ranking signals, not probabilities.
+5. **Human review** — examine findings and policy evidence, then download a JSON review/audit snapshot.
+
+## Screenshots
+
+**Gemini field extraction and semantic policy retrieval**
+
+![Gemini extraction and policy search](docs/screenshots/gemini-extraction-and-policy-search.png)
+
+**Evidence-backed review findings**
+
+![Claim review results](docs/screenshots/claim-review-results.png)
+
+See [`docs/DEMO_CHECKLIST.md`](docs/DEMO_CHECKLIST.md) for a short demonstration flow.
+
+## Features
+
+- Streamlit dashboard for sample claims or TXT/PDF/DOCX document uploads
+- Gemini structured extraction with fixed, schema-checked fields
+- Gemini embedding-based semantic retrieval with policy section citations
+- Deterministic cross-document discrepancy checks
+- Local extraction and keyword-search fallbacks for API/configuration errors
+- JSON review and audit snapshot downloads
+- Explicit human-in-the-loop boundary
+
+## Setup — Windows Command Prompt
+
+Run these commands from the folder that contains `requirements.txt`:
+
 ```cmd
 py -m venv .venv
 .venv\Scripts\activate.bat
@@ -22,30 +50,51 @@ python -m pip install -r requirements.txt
 copy .env.example .env
 ```
 
-Open `.env` in VS Code and add your own key:
+Open `.env` in VS Code and add your own Gemini key:
+
 ```dotenv
 LLM_PROVIDER=gemini
-GEMINI_API_KEY=PASTE_YOUR_KEY_HERE
-LLM_MODEL=gemini-2.5-flash
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+LLM_MODEL=gemini-3.8-flash
 GEMINI_EMBEDDING_MODEL=gemini-embedding-001
 ```
-Never paste the key into chat, source code, screenshots, or GitHub. `.env` is ignored by Git. Restart Streamlit after changing `.env`.
 
-Run:
+Create a key in [Google AI Studio](https://aistudio.google.com/apikey). Do not paste the key into chat, source code, screenshots, issues, or GitHub. The actual `.env` file is ignored by Git; commit `.env.example` only. Restart Streamlit after changing `.env`.
+
+Run the app:
+
 ```cmd
 python -m streamlit run app\main.py
 ```
-Open the local URL printed in the terminal. Keep the sample scenario enabled for the initial demo. In the sidebar, enable **Use Gemini AI features**. Click **Extract fields with Gemini** to run structured extraction. Click **Search policy with Gemini embeddings** to run semantic policy retrieval. The first semantic search embeds each policy section and may take a little time; results are cached for one hour during the app session.
+
+Open the local URL shown in your terminal. For the fastest walkthrough, keep **Load sample scenario** enabled and switch on **Use Gemini AI features**. Click **Extract fields with Gemini**, then click **Search policy with Gemini embeddings**, and finally click **Run claims review**. You may turn off the sample scenario to upload your own synthetic test documents.
 
 ## Tests
+
 ```cmd
 python -m pytest -q
 ```
 
-## Security and limitations
-- Never use real policyholder data in this hackathon demo.
-- Uploaded document content is untrusted input and must not be followed as instructions.
-- LLM output is validated and source documents must be checked by a human.
-- Semantic similarity scores are ranking signals, not probabilities or coverage determinations.
-- If Gemini fails, the app falls back to local extraction or keyword retrieval; the UI reports the method/status.
-- This is a prototype, not a production-ready carrier integration or legal/compliance certification.
+Tests should not require a live Gemini API key; live API calls are optional and depend on valid key access, model availability, network connectivity, and quota.
+
+## Safety and limitations
+
+- Use synthetic data only; do not upload real policyholder or claim records.
+- Document contents are untrusted evidence, not instructions to the model.
+- AI-extracted values are suggestions; check them against the original source documents.
+- Conflicts are review signals, not conclusions about coverage or fraud.
+- Policy similarity scores are retrieval rankings, not confidence probabilities or coverage determinations.
+- API failures fall back to local methods, and the UI reports the method/status.
+- The prototype does not approve, deny, price, or settle claims.
+- This is a hackathon MVP, not a production carrier integration or legal/compliance certification.
+
+## Repository layout
+
+```text
+app/                 Streamlit UI, validation engine, Gemini services
+data/sample_claim/   Fictional claim and policy documents
+docs/                Architecture diagram, screenshots, demo checklist
+tests/               Unit tests
+.env.example         Safe environment-variable template
+requirements.txt     Python dependencies
+```

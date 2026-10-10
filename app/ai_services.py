@@ -19,7 +19,7 @@ FIELD_KEYS = (
     "claimant_name", "policy_number", "vehicle_registration",
     "incident_date", "incident_location",
 )
-DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
+DEFAULT_GEMINI_MODEL = "gemini-3.8-flash"
 DEFAULT_EMBEDDING_MODEL = "gemini-embedding-001"
 
 
