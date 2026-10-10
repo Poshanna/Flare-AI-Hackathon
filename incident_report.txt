@@ -1,0 +1,5 @@
+Claim ID: CLM-2026-001
+Vehicle Registration: TS09AB1284
+Incident Date: 2026-10-07
+Incident Type: Vehicle collision
+Reported Damage: Front bumper damage

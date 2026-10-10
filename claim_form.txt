@@ -1,0 +1,6 @@
+Claim ID: CLM-2026-001
+Policy Number: POL-1001
+Vehicle Registration: TS09AB1234
+Incident Date: 2026-10-08
+Incident Type: Vehicle collision
+Reported Damage: Front bumper damage

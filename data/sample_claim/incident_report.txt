@@ -1,0 +1,6 @@
+INCIDENT REPORT — SYNTHETIC SAMPLE
+Policy Number: POL-2026-1042
+Vehicle Registration: TS09AB1284
+Incident Date: 2026-10-07
+Incident Location: Hyderabad
+Reported event: Low-speed collision near an intersection. This synthetic record intentionally contains conflicting vehicle registration and incident date values so ClaimPilot AI can demonstrate discrepancy detection.

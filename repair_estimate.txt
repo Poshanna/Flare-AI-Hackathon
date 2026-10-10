@@ -1,0 +1,5 @@
+Claim ID: CLM-2026-001
+Vehicle Registration: TS09AB1234
+Incident Date: 2026-10-08
+Estimated Repair Cost: INR 45000
+Damage: Front bumper and headlight

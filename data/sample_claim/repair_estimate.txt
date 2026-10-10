@@ -1,0 +1,7 @@
+REPAIR ESTIMATE — SYNTHETIC SAMPLE
+Policy Number: POL-2026-1042
+Vehicle Registration: TS09AB1234
+Incident Date: 2026-10-08
+Estimated repair cost: INR 18,500
+Items: Front bumper replacement and paintwork.
+This is a fictional estimate for software demonstration only.
